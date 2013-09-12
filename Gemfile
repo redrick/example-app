@@ -41,5 +41,6 @@ gem "rspec-rails", :group => [:test, :development]
 group :test do
   gem "factory_girl_rails"
   gem "capybara"
-  gem "guard-rspec"
+  gem "guard-rspec", '~> 2.0.0'
+  gem 'rspec', '~> 2.11.0'
 end

@@ -1,6 +1,8 @@
 <h1>Articles</h1>
 <div class="content">
-  <%= link_to "Create new article", new_article_path %>
+  <% if allow? 'articles', 'new' %>
+    <%= link_to "Create new article", new_article_path %>
+  <% end %>
 </div>
 
 <div id="articles">
@@ -13,9 +15,13 @@
     on <%= article.published_at.strftime('%b %d, %Y') %>
   </div>
   <div class="content">
-	  <%= link_to 'Show article', article %> |
-    <%= link_to 'Delete', article_path(article), method: :delete, confirm: "Are you sure?" %> |
-    <%= link_to 'Edit', edit_article_path(article) %>
+	  <%= link_to 'Show article', article %>
+    <% if allow? 'articles', 'destroy' %>
+     | <%= link_to 'Delete', article_path(article), method: :delete, confirm: "Are you sure?" %>
+    <% end %>
+    <% if allow? 'articles', 'edit' %>
+     | <%= link_to 'Edit', edit_article_path(article) %>
+    <% end %>
   </div>
 <% end %>
 </div>

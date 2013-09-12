@@ -29,13 +29,13 @@ describe Permission do
   end
   
   describe "as admin" do
-    subject { Permission.new(build(:user, admin: true)) }
+    subject { Permission.new(FactoryGirl.build(:user, admin: true)) }
     
     it { should allow("anything", "here") }
   end
   
   describe "as member" do
-    subject { Permission.new(build(:user, admin: false)) }
+    subject { Permission.new(FactoryGirl.build(:user, admin: false)) }
     
     it { should allow("articles", "index") }
     it { should allow("articles", "show") }
