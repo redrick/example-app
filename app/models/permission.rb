@@ -1,17 +1,64 @@
-class Permission < Struct.new(:user)
-  
-  def allow?(controller, action)
-    return true if controller == "password_resets"
-    return true if controller == "static_pages"
-    return true if controller == "sessions"
-    return true if controller == "users" && action.in?(%w[new create])
-    return true if controller == "articles" && action.in?(%w[index show])
+class Permission
+  def initialize(user)
+    allow :password_resets, [:new, :create, :edit, :update, :destroy, :delete]
+    allow :static_pages, []
+    allow :users, [:new, :create]
+    allow :sessions, [:new, :create, :destroy]
+    allow :articles, [:index, :show]
     if user
-      return true if controller == "users" && action.in?(%w[edit update])
-      return true if controller == "articles" && action != "destroy"
-      return true if user.admin?
+      allow :users, [:edit, :update]
+      allow :articles, [:new, :create]
+      allow :articles, [:edit, :update] do |article|
+        article.user_id == user.id
+      end
+      allow_param :article, [:name]
+      allow_all if user.admin?
     end
-    false
+  end
+  
+  def allow?(controller, action, resource = nil)
+    allowed = @allow_all || @allowed_actions[[controller.to_s, action.to_s]]
+    allowed && (allowed == true || resource && allowed.call(resource))
+  end
+  
+  def allow_all
+    @allow_all = true
   end
 
+  def allow(controllers, actions, &block)
+    @allowed_actions ||= {}
+    Array(controllers).each do |controller|
+      Array(actions).each do |action|
+        @allowed_actions[[controller.to_s, action.to_s]] = block || true
+      end
+    end
+  end
+  
+  def allow_param(resources, attributes)
+    @allowed_params ||= {}
+    Array(resources).each do |resource|
+      @allowed_params[resource] ||= []
+      @allowed_params[resource] += Array(attributes)
+    end
+  end
+
+  def allow_param?(resource, attribute)
+    if @allow_all
+      true
+    elsif @allowed_params && @allowed_params[resource]
+      @allowed_params[resource].include? attribute
+    end
+  end
+
+  def permit_params!(params)
+    if @allow_all
+      params.permit!
+    elsif @allowed_params
+      @allowed_params.each do |resource, attributes|
+        if params[resource].respond_to? :permit
+          params[resource] = params[resource].permit(*attributes)
+        end
+      end
+    end
+  end
 end

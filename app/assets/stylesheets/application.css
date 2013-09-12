@@ -87,6 +87,10 @@ form .field, form .actions {
   margin: 12px 0;
 }
 
+#articles {
+  padding:15px;
+}
+
 #articles h2 {
   font-size: 16px;
   margin-bottom: 2px;
