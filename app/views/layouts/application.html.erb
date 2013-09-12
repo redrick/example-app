@@ -7,6 +7,9 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
+    <div class="header">
+      <%=h link_to "Homepage", root_path %>
+    </div>
     <div id="container">
       <div id="user_header">
 		  <% if current_user %>
