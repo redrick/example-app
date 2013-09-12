@@ -36,4 +36,19 @@ Blog::Application.configure do
   config.assets.debug = true
   
   config.action_mailer.default_url_options = { :host => "localhost:3003" }
+
+  # A: logging init
+  # time = Time.now
+  # log_filename = 'log/'+time.year.to_s+'/'+time.month.to_s+'/'+time.day.to_s+'.log'
+  # if !File.exist?(log_filename)
+  #   dirname = 'log/'+time.year.to_s+'/'+time.month.to_s+'/'
+  #   unless File.directory?(dirname)
+  #     FileUtils.mkdir_p(dirname, mode: 0777, verbose: true)
+  #   end
+  #   FileUtils.touch(log_filename)
+  # end
+
+  # config.logger = Logger.new(log_filename)
+  # config.logger.level = Logger::DEBUG
+
 end

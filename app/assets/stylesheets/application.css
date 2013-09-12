@@ -108,3 +108,14 @@ form .field, form .actions {
   margin-left: 200px;
   font-size: 45px;
 }
+
+.footer {
+  width:100%;
+  min-height:100px;
+}
+
+
+.footer ul {
+  padding:10px;
+  margin-left: 210px;
+}

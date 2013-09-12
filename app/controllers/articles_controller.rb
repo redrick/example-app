@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  before_filter :authorize, only: [:edit, :update] 
   
   def index
     @articles = Article.all
@@ -13,6 +12,19 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def new
+    @article = Article.new
+  end
+  
+  def create
+    @article = Article.new(params[:article])
+    if @article.save
+      redirect_to @article, notice: "Article has been created."
+    else
+      render :new
+    end
+  end
+  
   def update
     @article = Article.find(params[:id])
     if @article.update_attributes(params[:article])

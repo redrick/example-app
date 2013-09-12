@@ -1,0 +1,63 @@
+
+
+Started GET "/login" for 127.0.0.1 at 2013-09-12 13:36:42 +0200
+Processing by SessionsController#new as HTML
+{"action"=>"new", "controller"=>"sessions"}
+  Rendered sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 51ms (Views: 49.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-12 13:36:42 +0200
+Served asset /application.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2013-09-12 13:36:42 +0200
+Served asset /articles.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2013-09-12 13:36:42 +0200
+Served asset /password_resets.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-09-12 13:36:42 +0200
+Served asset /users.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2013-09-12 13:36:42 +0200
+Served asset /sessions.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2013-09-12 13:36:42 +0200
+Served asset /static_pages.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-12 13:36:42 +0200
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2013-09-12 13:36:42 +0200
+Served asset /articles.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-12 13:36:42 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2013-09-12 13:36:43 +0200
+Served asset /password_resets.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2013-09-12 13:36:43 +0200
+Served asset /sessions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2013-09-12 13:36:43 +0200
+Served asset /static_pages.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-09-12 13:36:43 +0200
+Served asset /users.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-12 13:36:43 +0200
+Served asset /application.js - 304 Not Modified (8ms)

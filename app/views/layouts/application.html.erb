@@ -14,6 +14,7 @@
       <div id="user_header">
 		  <% if current_user %>
 		    Logged in as <%= current_user.email %>.
+        <%= link_to "My Profile", edit_user_path(current_user.id) %> | 
 		    <%= link_to "Log Out", logout_path %>
 		  <% else %>
 		    <%= link_to "Sign Up", signup_path %> or
@@ -26,6 +27,11 @@
       <% end %>
 
       <%= yield %>
+    </div>
+    <div class="footer">
+      <ul>
+        <li><%=h link_to "Static page", static_page_path %></li>
+      </ul>
     </div>
   </body>
 </html>
