@@ -7,6 +7,7 @@ Blog::Application.routes.draw do
   
   resources :users
   resources :sessions
-
+  resources :password_resets
+  
   resources :articles
 end
