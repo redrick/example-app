@@ -17,7 +17,7 @@
     </div>
     <div class="content">
   	  <%= link_to 'Show article', article %>
-      <% if allow? 'articles', 'destroy' %>
+      <% if allow? 'articles', 'destroy', article %>
        | <%= link_to 'Delete', article_path(article), method: :delete, confirm: "Are you sure?" %>
       <% end %>
       <% if allow? 'articles', 'edit', article %>

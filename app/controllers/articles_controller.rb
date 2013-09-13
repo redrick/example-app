@@ -5,11 +5,11 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = current_resource
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = current_resource
   end
 
   def new
@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
   
   def create
     @article = Article.new(params[:article])
+    @article.user = current_user
     if @article.save
       redirect_to @article, notice: "Article has been created."
     else
@@ -26,7 +27,7 @@ class ArticlesController < ApplicationController
   end
   
   def update
-    @article = Article.find(params[:id])
+    @article = current_resource
     if @article.update_attributes(params[:article])
       redirect_to @article, notice: "Article has been updated."
     else
@@ -38,5 +39,11 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.delete
     redirect_to root_url, notice: "Article removed!"
+  end
+  
+private
+  
+  def current_resource
+    @current_resource ||= Article.find(params[:id]) if params[:id]
   end
 end
