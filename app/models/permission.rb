@@ -11,7 +11,7 @@ class Permission
       allow :articles, [:edit, :update] do |article|
         article.user_id == user.id
       end
-      allow_param :articles, [:name]
+      allow_param :article, [:name]
       allow_all if user.admin?
     end
   end

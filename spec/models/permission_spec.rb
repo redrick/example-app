@@ -34,8 +34,8 @@ describe Permission do
     it { should_not allow(:users, :update) }
 
 
-    it { should_not allow_param(:articles, :name) }
-    it { should_not allow_param(:articles, :sticky) }
+    it { should_not allow_param(:article, :name) }
+    it { should_not allow_param(:article, :sticky) }
   end
   
   describe "as admin" do
@@ -64,7 +64,7 @@ describe Permission do
     it { should_not allow(:articles, :destroy) }
 
 
-    it { should allow_param(:articles, :name) }
-    it { should_not allow_param(:articles, :sticky) }
+    it { should allow_param(:article, :name) }
+    it { should_not allow_param(:article, :sticky) }
   end
 end
