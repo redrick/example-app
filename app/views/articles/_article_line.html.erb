@@ -1,0 +1,17 @@
+<h2>
+  <%= link_to article.name, article %>
+</h2>
+<div class="info">
+  by <%= article.author_name %>
+  on <%= article.published_at.strftime('%b %d, %Y') %>
+</div>
+<div class="content">
+  <%= "Sticky |" if article.sticky? %>
+  <%= link_to 'Show article', article %>
+  <% if allow? 'articles', 'destroy', article %>
+   | <%= link_to 'Delete', article_path(article), method: :delete, confirm: "Are you sure?" %>
+  <% end %>
+  <% if allow? 'articles', 'edit', article %>
+   | <%= link_to 'Edit', edit_article_path(article) %>
+  <% end %>
+</div>

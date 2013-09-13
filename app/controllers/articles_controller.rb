@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   
   def index
-    @articles = Article.page(params[:page]).per_page(7)
+    @articles = Article.page(params[:page]).per_page(7).order('sticky DESC').order('created_at DESC')
   end
 
   def show
