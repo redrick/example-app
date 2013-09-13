@@ -12,9 +12,9 @@ RSpec::Matchers.define :allow_param do |*args|
   end
 end
 
-describe Permission do
+describe Permissions do
   describe "as guest" do
-    subject { Permission.new(nil) }
+    subject { Permissions.permission_for(nil) }
     
     it { should allow(:articles, :index) }
     it { should allow(:articles, :show) }
@@ -39,7 +39,7 @@ describe Permission do
   end
   
   describe "as admin" do
-    subject { Permission.new(FactoryGirl.build(:user, admin: true)) }
+    subject { Permissions.permission_for(FactoryGirl.build(:user, admin: true)) }
     
     it { should allow(:anything, :here) }    
     it { should allow_param(:anything, :here) }
@@ -49,7 +49,7 @@ describe Permission do
     let(:user) { FactoryGirl.create(:user, admin: false) }
     let(:user_article) { FactoryGirl.build(:article, user: user) }
     let(:other_article) { FactoryGirl.build(:article) }
-    subject { Permission.new(user) }
+    subject { Permissions.permission_for(user) }
 
     it { should allow(:articles, :index) }
     it { should allow(:articles, :show) }
