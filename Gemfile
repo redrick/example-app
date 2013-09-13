@@ -38,6 +38,8 @@ gem 'will_paginate', '> 3.0'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+gem 'strong_parameters', github: 'rails/strong_parameters'
+
 gem "rspec-rails", :group => [:test, :development]
 group :test do
   gem "factory_girl_rails"

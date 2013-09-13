@@ -3,10 +3,11 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   # ## Mock Framework
@@ -27,6 +28,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   
   # A: MailerMacros included and initialized
+  config.include(AuthMacros)
   config.include(MailerMacros)
   config.before(:each) {reset_email}
 

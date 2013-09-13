@@ -6,6 +6,12 @@ RSpec::Matchers.define :allow do |*args|
   end
 end
 
+RSpec::Matchers.define :allow_param do |*args|
+  match do |permission|
+    permission.allow_param?(*args).should be_true
+  end
+end
+
 describe Permission do
   describe "as guest" do
     subject { Permission.new(nil) }
@@ -26,12 +32,17 @@ describe Permission do
     it { should allow(:users, :create) }
     it { should_not allow(:users, :edit) }
     it { should_not allow(:users, :update) }
+
+
+    it { should_not allow_param(:articles, :name) }
+    it { should_not allow_param(:articles, :sticky) }
   end
   
   describe "as admin" do
     subject { Permission.new(FactoryGirl.build(:user, admin: true)) }
     
-    it { should allow(:anything, :here) }
+    it { should allow(:anything, :here) }    
+    it { should allow_param(:anything, :here) }
   end
   
   describe "as member" do
@@ -51,5 +62,9 @@ describe Permission do
     it { should allow(:articles, :edit, user_article) }
     it { should allow(:articles, :update, user_article) }
     it { should_not allow(:articles, :destroy) }
+
+
+    it { should allow_param(:articles, :name) }
+    it { should_not allow_param(:articles, :sticky) }
   end
 end

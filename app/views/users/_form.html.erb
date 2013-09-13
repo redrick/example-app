@@ -23,9 +23,11 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="field">
-    <%= f.check_box :admin %>
-    <%= f.label :admin %>
-  </div>
+  <% if allow_param? :user, :admin %>
+    <div class="field">
+      <%= f.check_box :admin %>
+      <%= f.label :admin %>
+    </div>
+  <% end %>
   <div class="actions"><%= f.submit %></div>
 <% end %>
