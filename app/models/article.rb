@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  attr_accessible :author_name, :name, :content, :user, :sticky
+
   has_many :comments
   
   belongs_to :user

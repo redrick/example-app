@@ -56,7 +56,7 @@ describe "Articles" do
   end
 
   it "cannot create sticky article as member" do
-    user = FactoryGirl.create(:user, admin: false, password: "secret")
+    user = FactoryGirl.build(:user, admin: false, password: "secret")
     post sessions_path, email: user.email, password: "secret"
     post articles_path, article: {name: "Sticky Article?", sticky: "1"}
     article = Article.last

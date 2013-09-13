@@ -46,7 +46,7 @@ describe Permissions do
   end
   
   describe "as member" do
-    let(:user) { FactoryGirl.create(:user, admin: false) }
+    let(:user) { FactoryGirl.build(:user, admin: false) }
     let(:user_article) { FactoryGirl.build(:article, user: user) }
     let(:other_article) { FactoryGirl.build(:article) }
     subject { Permissions.permission_for(user) }

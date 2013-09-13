@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "User" do
   describe "#send_password_reset" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryGirl.build(:user) }
 
     it "generates a unique password_reset_token each time" do
       user.send_password_reset

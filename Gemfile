@@ -49,3 +49,6 @@ end
 
 # transition from rails 3.2.1 to rails4
 gem 'protected_attributes'
+gem 'rails-observers'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
