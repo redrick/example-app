@@ -53,5 +53,7 @@ module Blog
 
     # rails4 deprecation varning
     config.secret_key_base = 'andrejko'
+
+    config.action_mailer.default_url_options = { :host => "localhost:3003" }
   end
 end

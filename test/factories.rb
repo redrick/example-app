@@ -8,11 +8,7 @@ FactoryGirl.define do
 
   factory :user do |u|
     u.password "secret"    
-    u.password_confirmation "secret"    
-    # u.email { FactoryGirl.generate :email }
-    # after :build do |u|
-    #   u.email = FactoryGirl.generate(:email)
-    # end
+    u.password_confirmation "secret"
     u.email {|a| "foo#{a}@example.com"}
   end
   
