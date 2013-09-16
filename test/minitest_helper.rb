@@ -11,6 +11,9 @@ class MyTests < MiniTest::Spec
   # include ActiveSupport::Testing::SetupAndTeardown
   # include ActionView::TestCase::Behavior
 
+  # empty mail deliveries array
+  ActionMailer::Base.deliveries = []
+
   include Rails.application.routes.url_helpers
   include Capybara::DSL
 
