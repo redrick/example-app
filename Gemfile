@@ -27,8 +27,8 @@ gem 'will_paginate', '> 3.0'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+# Use THIN as the web server
+gem 'thin'
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -42,8 +42,9 @@ gem "rspec-rails", :group => [:test, :development]
 group :test do
   gem "factory_girl_rails"
   gem "capybara"
-  gem "guard-rspec", '~> 2.0.0'
-  gem 'rspec', '~> 2.11.0'
+  gem "minitest"
+  # gem "guard-rspec", '~> 2.0.0'
+  # gem 'rspec', '~> 2.11.0'
   # gem 'turn'
 end
 
