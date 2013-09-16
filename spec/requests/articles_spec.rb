@@ -24,7 +24,10 @@ describe "Articles" do
     log_in admin: true
     visit articles_path
     page.should have_content("Old Name")
-    click_on "Edit"
+    # within(".article") do
+    #   click_on "Edit"
+    # end
+    page.first(:link, "Edit").click
     fill_in "Name", with: "New Name"
     click_on "Update Article"
     page.should have_content("Article has been updated.")
@@ -37,7 +40,8 @@ describe "Articles" do
     log_in admin: true
     visit articles_path
     page.should have_content("Oops")
-    click_on "Delete"
+    # click_on "Delete"
+    page.first(:link, "Delete").click
     page.should have_content("Article removed!")
     page.should_not have_content("Oops")
   end
@@ -56,7 +60,7 @@ describe "Articles" do
   end
 
   it "cannot create sticky article as member" do
-    user = FactoryGirl.build(:user, admin: false, password: "secret")
+    user = FactoryGirl.create(:user, admin: false, password: "secret")
     post sessions_path, email: user.email, password: "secret"
     post articles_path, article: {name: "Sticky Article?", sticky: "1"}
     article = Article.last

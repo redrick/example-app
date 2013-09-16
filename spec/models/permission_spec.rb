@@ -46,9 +46,9 @@ describe Permissions do
   end
   
   describe "as member" do
-    let(:user) { FactoryGirl.build(:user, admin: false) }
-    let(:user_article) { FactoryGirl.build(:article, user: user) }
-    let(:other_article) { FactoryGirl.build(:article) }
+    let(:user) { FactoryGirl.create(:user, admin: false) }
+    let(:user_article) { FactoryGirl.create(:article, user: user) }
+    let(:other_article) { FactoryGirl.create(:article) }
     subject { Permissions.permission_for(user) }
 
     it { should allow(:articles, :index) }

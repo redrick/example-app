@@ -19,7 +19,7 @@ class PasswordResetsController < ApplicationController
     elsif @user.update_attributes(params[:user])
       redirect_to root_url, notice: "Password has been reset!"
     else 
-      render :edit
+      render :edit, alert: "Password confirmation doesn't match Password"
     end
   end
 end

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   
-  attr_accessible :email, :password, :password_confirmation, :admin
+  attr_accessible :email, :password, :password_confirmation, :admin, :password_reset_token, :password_reset_sent_at
   
   has_many :articles
   
