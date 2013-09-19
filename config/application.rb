@@ -6,9 +6,22 @@ Bundler.require(:default, Rails.env)
 
 module Blog
   class Application < Rails::Application
+    # config.action_dispatch.default_headers = {
+    #     'Access-Control-Allow-Origin' => '*',
+    #     # 'Access-Control-Allow-Credentials' => 'true',
+    #     'Access-Control-Allow-Headers' => 'Content-Type',
+    #     'Access-Control-Allow-Methods' => '*',
+    #     'Access-Control-Request-Method' => '*'
+    # }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :patch, :options]
+      end
+    end
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
