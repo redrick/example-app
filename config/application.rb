@@ -19,7 +19,7 @@ module Blog
     config.middleware.use Rack::Cors do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :patch, :options, :delete]
+        resource '*', :headers => :any, :methods => [:get, :post, :patch, :options, :delete, :put]
       end
     end
 

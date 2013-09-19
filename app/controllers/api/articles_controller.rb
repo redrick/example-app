@@ -11,11 +11,11 @@ module Api
     end
 
     def create
-      respond_with Article.create(params[:article])
+      respond_with Article.create(article_params)
     end
 
     def update
-      respond_with Article.update(params[:id], params[:article])
+      respond_with Article.update(params[:id], article_params)
     end
 
     def destroy
@@ -24,9 +24,9 @@ module Api
 
     private
       # Only allow a trusted parameter "white list" through.
-      # def article_params
-      #   Rails.logger.debug "=================> #{params}"
-      #   params.require(:article).permit(:id, :name, :description, :user_id, :on_stock)
-      # end
+      def article_params
+        Rails.logger.debug "=================> #{params}"
+        params.require(:article).permit(:id, :name, :content, :user_id, :author_name)
+      end
   end
 end

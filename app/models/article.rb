@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :author_name, :name, :content, :user, :sticky
+  # attr_accessible :author_name, :name, :content, :user, :sticky
 
   has_many :comments
   
