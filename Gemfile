@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
+gem 'nokogiri'
 gem 'rails', '4.0.0'
 
 gem 'sqlite3'
 
 gem 'railties'
+
+gem 'pry'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -39,3 +42,10 @@ gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 
 gem 'rack-cors', :require => 'rack/cors'
+
+# gem 'wordnik'
+# gem 'rapidoc'
+# gem 'swagger-ui', :require => 'swagger'
+gem 'apipie-rails'
+# gem 'api_taster'
+# gem 'calamum'

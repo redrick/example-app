@@ -23,10 +23,39 @@ module Api
     end
 
     private
-      # Only allow a trusted parameter "white list" through.
       def article_params
-        Rails.logger.debug "=================> #{params}"
-        params.require(:article).permit(:id, :name, :content, :user_id, :author_name)
-      end
+        params.require(:article).permit(:id, :name, :content, :user_id, :author_name, :sticky)
+      end    
+
+    # users_controller.rb
+
+    # =begin resource
+    # description: Represents an user in the system.
+    # =end
+
+    # =begin action
+    # method: GET
+    # action: index
+    # requires_authentication: no
+    # response_formats: json
+    # description: Return all users of the system.
+    #
+    # http_responses:
+    #   - 200
+    #   - 401
+    #   - 403
+    #
+    # params:
+    #   - name: page
+    #     description: number of page in pagination
+    #     required: false
+    #     type: Integer
+    #
+    #   - name: limit
+    #     description: number of elements by page in pagination
+    #
+    #   - name: name
+    #     description: name filter
+    # =end
   end
 end
