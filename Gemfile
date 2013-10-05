@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'nokogiri'
 gem 'rails', '4.0.0'
 
@@ -49,3 +51,5 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'apipie-rails'
 # gem 'api_taster'
 # gem 'calamum'
+
+gem 'redis_dictionary', path: '~/Projects/redis_dictionary/'
