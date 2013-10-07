@@ -1,4 +1,5 @@
 Blog::Application.routes.draw do
+  mount RedisDictionary::Engine => '/translations'
   # apipie
   # mount ApiTaster::Engine => "/api_taster" if Rails.env.development?
   get 'signup', to: 'users#new', as: 'signup'

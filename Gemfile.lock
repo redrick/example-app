@@ -1,7 +1,7 @@
 PATH
   remote: ~/Projects/redis_dictionary/
   specs:
-    redis_dictionary (0.9.9)
+    redis_dictionary (1.0.1)
       jquery-rails
       jquery-ui-rails
       less-rails
@@ -43,8 +43,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     ansi (1.4.3)
-    apipie-rails (0.0.23)
-      rails (>= 3.0.10)
     arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.0.1)
@@ -178,7 +176,6 @@ PLATFORMS
 DEPENDENCIES
   actionpack-action_caching
   actionpack-page_caching
-  apipie-rails
   bcrypt-ruby (~> 3.0.0)
   capybara
   capybara_minitest_spec

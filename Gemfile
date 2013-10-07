@@ -48,7 +48,7 @@ gem 'rack-cors', :require => 'rack/cors'
 # gem 'wordnik'
 # gem 'rapidoc'
 # gem 'swagger-ui', :require => 'swagger'
-gem 'apipie-rails'
+# gem 'apipie-rails'
 # gem 'api_taster'
 # gem 'calamum'
 
