@@ -1,7 +1,7 @@
 PATH
   remote: ~/Projects/redis_dictionary/
   specs:
-    redis_dictionary (1.0.1)
+    redis_dictionary (1.0.2)
       jquery-rails
       jquery-ui-rails
       less-rails
